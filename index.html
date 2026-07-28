@@ -211,9 +211,9 @@ section{padding:96px 0;}
   display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:center;
 }
 .about-photo{
-  width:280px;height:340px;background:var(--paper);border:1px solid var(--line);
-  display:flex;align-items:center;justify-content:center;
-  font-size:13px;color:var(--muted);text-align:center;padding:20px;
+  width:280px;height:340px;object-fit:cover;
+  border:1px solid var(--line);
+  filter:grayscale(15%);
 }
 .about-text h2{font-size:30px;margin-bottom:18px;}
 .about-text p{font-size:16px;color:var(--muted);max-width:520px;margin-bottom:10px;}
@@ -278,7 +278,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
   .process-item div:nth-child(3){grid-column:2;}
   .sport-grid{grid-template-columns:1fr 1fr;}
   .about-grid{grid-template-columns:1fr;}
-  .about-photo{width:100%;}
+  .about-photo{width:100%;height:auto;max-height:380px;}
   .contact-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
   .calendar-embed iframe{height:500px;}
@@ -308,7 +308,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
       <a class="navlink" href="#kontakt">Kontakt</a>
       <a class="lang" href="#"><span>SE</span> / EN</a>
     </nav>
-    <a class="btn" href="#kontakt">Boka möte</a>
+    <a class="btn" href="#kalender">Boka direkt i kalendern</a>
   </div>
 </header>
 
@@ -320,8 +320,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
       <h1>Juridisk hjälp till fast pris.</h1>
       <p class="lead">Avtal upprättas och granskas. Fast pris. Ingen timdebitering.</p>
       <div class="hero-ctas">
-        <a class="btn btn-gold" href="#kontakt">Boka kostnadsfritt möte</a>
-        <a class="btn btn-outline" href="#tjanster">Se tjänster</a>
+        <a class="btn btn-gold" href="#tjanster">Se tjänster</a>
       </div>
       <div class="hero-note">Direktkontakt med ansvarig jurist. Inga mellanhänder.</div>
     </div>
@@ -417,7 +416,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
       <div class="process-item">
         <div class="num">02</div>
         <h3>Möte</h3>
-        <p>Ärendet gås igenom. Digitalt, per telefon eller i Göteborg.</p>
+        <p>Ärendet gås igenom. Digitalt eller i Göteborg.</p>
       </div>
       <div class="process-item">
         <div class="num">03</div>
@@ -467,14 +466,15 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
 
     <div class="sport-note">
       <p>Målsmans godkännande krävs vid bokning för spelare under 18 år. Representationsavtal följer SvFF:s och FIFA:s regelverk för spelaragenter och minderåriga.</p>
-      <a class="btn btn-gold" href="#kontakt">Boka session</a>
+      <a class="btn btn-gold" href="#kalender">Boka session</a>
     </div>
   </div>
 </section>
 
 <!-- OM OSS -->
 <section id="om-oss">
-  <div class="wrap">
+  <div class="wrap about-grid">
+    <img class="about-photo" src="haval-ibrahim.jpg" alt="Haval Ibrahim, grundare Juridify">
     <div class="about-text">
       <h2>Om Juridify</h2>
       <p>Juridify grundades av Haval Ibrahim, jur.kand., Göteborg.</p>
@@ -490,7 +490,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
 
 <!-- KONTAKT -->
 <section id="kontakt" class="section-alt">
-  <div class="wrap">
+  <div class="wrap" id="kalender">
     <div class="section-head">
       <div class="eyebrow">Boka möte</div>
       <h2>Boka direkt i kalendern.</h2>
