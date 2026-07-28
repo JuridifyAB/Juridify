@@ -227,6 +227,20 @@ section{padding:96px 0;}
 .contact-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:64px;
 }
+/* ---------- KONTAKT ---------- */
+.calendar-embed{
+  margin-bottom:64px;
+  border:1px solid var(--line);
+  background:var(--white);
+  overflow:hidden;
+}
+.calendar-embed iframe{
+  width:100%;
+  max-width:800px;
+  height:600px;
+  display:block;
+  margin:0 auto;
+}
 .contact-info h2{font-size:32px;margin-bottom:16px;}
 .contact-info p{font-size:16px;color:var(--muted);max-width:380px;margin-bottom:28px;}
 .contact-detail{margin-bottom:14px;font-size:14.5px;}
@@ -267,6 +281,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
   .about-photo{width:100%;}
   .contact-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
+  .calendar-embed iframe{height:500px;}
 }
 @media (max-width:560px){
   .wrap{padding:0 20px;}
@@ -459,8 +474,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
 
 <!-- OM OSS -->
 <section id="om-oss">
-  <div class="wrap about-grid">
-    <div class="about-photo">Foto: Haval Ibrahim</div>
+  <div class="wrap">
     <div class="about-text">
       <h2>Om Juridify</h2>
       <p>Juridify grundades av Haval Ibrahim, jur.kand., Göteborg.</p>
@@ -476,39 +490,46 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
 
 <!-- KONTAKT -->
 <section id="kontakt" class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Boka möte</div>
+      <h2>Boka direkt i kalendern.</h2>
+    </div>
+
+    <div class="calendar-embed">
+      <iframe src="https://calendar.google.com/calendar/embed?src=c_3bf8280932ba5765f39922080ca5a6c1821bd21d944cc70856b97ffb28eac996%40group.calendar.google.com&ctz=Europe%2FStockholm" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
+
   <div class="wrap contact-grid">
     <div class="contact-info">
       <h2>Kontakt</h2>
-      <p>Möte bokas i kalendern eller via formuläret.</p>
-      <div class="contact-detail"><span class="k">E-post: </span><span class="v">kontakt@juridify.se</span></div>
-      <div class="contact-detail"><span class="k">Telefon: </span><span class="v">[TELEFONNUMMER]</span></div>
+      <p>Möte bokas i kalendern ovan eller via formuläret.</p>
+      <div class="contact-detail"><span class="k">E-post: </span><span class="v">info@juridify.se</span></div>
       <div class="contact-detail"><span class="k">Plats: </span><span class="v">Göteborg</span></div>
     </div>
 
-    <form class="form" onsubmit="return false;">
+    <form class="form" action="https://formsubmit.co/info@juridify.se" method="POST">
+      <input type="hidden" name="_subject" value="Nytt meddelande från juridify.se">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
       <div class="form-row">
         <div class="field">
           <label for="namn">Namn</label>
-          <input id="namn" type="text" placeholder="Förnamn Efternamn">
+          <input id="namn" name="Namn" type="text" placeholder="Förnamn Efternamn" required>
         </div>
         <div class="field">
           <label for="foretag">Företag / Klubb</label>
-          <input id="foretag" type="text" placeholder="Valfritt">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field">
-          <label for="epost">E-post</label>
-          <input id="epost" type="email" placeholder="namn@exempel.se">
-        </div>
-        <div class="field">
-          <label for="telefon">Telefon</label>
-          <input id="telefon" type="tel" placeholder="07X-XXX XX XX">
+          <input id="foretag" name="Företag / Klubb" type="text" placeholder="Valfritt">
         </div>
       </div>
       <div class="field">
+        <label for="epost">E-post</label>
+        <input id="epost" name="E-post" type="email" placeholder="namn@exempel.se" required>
+      </div>
+      <div class="field">
         <label for="arende">Ärende</label>
-        <textarea id="arende" placeholder="Beskriv kort vad det gäller."></textarea>
+        <textarea id="arende" name="Ärende" placeholder="Beskriv kort vad det gäller." required></textarea>
       </div>
       <button class="btn" type="submit" style="align-self:flex-start;">Skicka</button>
     </form>
@@ -521,7 +542,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
     <div class="footer-links">
       <a href="#">Allmänna villkor</a>
       <a href="#">Integritetspolicy</a>
-      <a href="#">kontakt@juridify.se</a>
+      <a href="mailto:info@juridify.se">info@juridify.se</a>
     </div>
   </div>
 </footer>
