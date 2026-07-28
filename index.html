@@ -211,7 +211,7 @@ section{padding:96px 0;}
   display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:center;
 }
 .about-photo{
-  width:280px;height:340px;object-fit:cover;
+  width:280px;height:340px;object-fit:cover;object-position:center 15%;
   border:1px solid var(--line);
   filter:grayscale(15%);
 }
@@ -232,13 +232,10 @@ section{padding:96px 0;}
   margin-bottom:64px;
   border:1px solid var(--line);
   background:var(--white);
-  overflow:hidden;
+  padding:8px;
 }
-.calendar-embed iframe{
-  width:100%;
+.calendly-inline-widget{
   max-width:800px;
-  height:600px;
-  display:block;
   margin:0 auto;
 }
 .contact-info h2{font-size:32px;margin-bottom:16px;}
@@ -281,7 +278,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
   .about-photo{width:100%;height:auto;max-height:380px;}
   .contact-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
-  .calendar-embed iframe{height:500px;}
+  .calendly-inline-widget{height:640px !important;}
 }
 @media (max-width:560px){
   .wrap{padding:0 20px;}
@@ -497,7 +494,8 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
     </div>
 
     <div class="calendar-embed">
-      <iframe src="https://calendar.google.com/calendar/embed?src=c_3bf8280932ba5765f39922080ca5a6c1821bd21d944cc70856b97ffb28eac996%40group.calendar.google.com&ctz=Europe%2FStockholm" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/havalloselani/30min" style="min-width:280px;height:700px;width:100%;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     </div>
   </div>
 
