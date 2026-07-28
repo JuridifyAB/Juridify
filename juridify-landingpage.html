@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juridify</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --navy:#0B2545;
+  --navy-2:#122f5c;
+  --gold:#C9A24B;
+  --paper:#F7F8FA;
+  --white:#FFFFFF;
+  --ink:#1A1A1A;
+  --muted:#5B6472;
+  --line:#E3E6EB;
+  --pitch:#0E3B2E;
+  --pitch-2:#134634;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Manrope',sans-serif;
+  color:var(--ink);
+  background:var(--white);
+  font-weight:400;
+  line-height:1.5;
+}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+h1,h2,h3{font-weight:800;letter-spacing:-0.02em;color:var(--navy);}
+
+/* ---------- HEADER ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:76px;
+}
+.logo{font-weight:800;font-size:22px;color:var(--navy);letter-spacing:-0.01em;}
+nav{display:flex;align-items:center;gap:36px;}
+nav a.navlink{
+  font-size:14.5px;font-weight:600;color:var(--navy);
+  position:relative;padding:4px 0;
+}
+nav a.navlink::after{
+  content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);
+  transition:width .2s ease;
+}
+nav a.navlink:hover::after{width:100%;}
+.lang{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.03em;}
+.lang span{color:var(--navy);}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--navy);color:var(--white);
+  font-weight:700;font-size:14.5px;
+  padding:13px 24px;border-radius:2px;
+  border:1px solid var(--navy);
+  transition:background .18s ease, color .18s ease;
+  white-space:nowrap;
+}
+.btn:hover{background:var(--navy-2);}
+.btn-outline{
+  background:transparent;color:var(--navy);border:1px solid var(--navy);
+}
+.btn-outline:hover{background:var(--navy);color:var(--white);}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--navy);}
+.btn-gold:hover{background:#b8913f;border-color:#b8913f;}
+
+/* ---------- HERO ---------- */
+.hero{
+  padding:96px 0 100px;
+  background:var(--white);
+  position:relative;
+  overflow:hidden;
+}
+.hero-grid{
+  max-width:640px;
+}
+.eyebrow{
+  font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:18px;
+}
+.hero h1{
+  font-size:52px;line-height:1.06;margin-bottom:22px;
+}
+.hero p.lead{
+  font-size:18px;color:var(--muted);max-width:440px;margin-bottom:32px;
+}
+.hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+.hero-note{
+  margin-top:18px;font-size:13.5px;color:var(--muted);
+}
+
+/* ---------- SECTION SHARED ---------- */
+section{padding:96px 0;}
+.section-head{max-width:600px;margin-bottom:56px;}
+.section-head .eyebrow{margin-bottom:12px;}
+.section-head h2{font-size:34px;}
+.section-alt{background:var(--paper);}
+
+/* ---------- TJÄNSTER ---------- */
+.service-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);
+}
+.service-card{
+  background:var(--white);padding:34px 28px;
+  display:block;position:relative;
+  transition:background .18s ease;
+}
+.service-card:hover{background:var(--paper);}
+.service-card:hover .card-arrow{transform:translate(3px,-3px);opacity:1;}
+.service-card h3{font-size:18px;margin-bottom:12px;padding-right:20px;}
+.service-card p{font-size:14.5px;color:var(--muted);}
+.card-arrow{
+  position:absolute;top:34px;right:28px;
+  font-size:16px;color:var(--gold);opacity:.55;
+  transition:transform .18s ease, opacity .18s ease;
+}
+.service-card:focus-visible{outline:2px solid var(--navy);outline-offset:-2px;}
+.service-tags{
+  margin-top:44px;padding-top:32px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:10px 12px;
+}
+.tag{
+  font-size:13px;font-weight:600;color:var(--navy);
+  border:1px solid var(--line);padding:7px 14px;border-radius:100px;
+  background:var(--white);
+}
+
+/* ---------- PRIS ---------- */
+.price-flow{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  position:relative;
+}
+.price-flow::before{
+  content:"";position:absolute;top:22px;left:6%;right:6%;height:1px;
+  background:var(--line);
+}
+.price-step{position:relative;padding-right:20px;}
+.price-num{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--navy);color:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:15px;margin-bottom:22px;position:relative;z-index:2;
+}
+.price-step p{font-size:14.5px;color:var(--muted);max-width:220px;}
+
+/* ---------- PROCESS ---------- */
+.process-list{border-top:1px solid var(--line);}
+.process-item{
+  display:grid;grid-template-columns:70px 1fr 1fr;gap:24px;
+  padding:28px 0;border-bottom:1px solid var(--line);align-items:start;
+}
+.process-item .num{font-size:14px;font-weight:800;color:var(--gold);letter-spacing:.05em;padding-top:4px;}
+.process-item h3{font-size:17px;}
+.process-item p{font-size:14.5px;color:var(--muted);}
+
+/* ---------- SPORT ---------- */
+.sport{
+  background:var(--pitch);
+  color:var(--white);
+  position:relative;
+  overflow:hidden;
+}
+.sport::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 64px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 64px);
+  pointer-events:none;
+}
+.sport .wrap{position:relative;z-index:1;}
+.sport .eyebrow{color:var(--gold);}
+.sport h2{color:var(--white);}
+.sport .section-head p{color:rgba(255,255,255,0.7);font-size:16px;margin-top:14px;}
+.sport-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:rgba(255,255,255,0.12);
+  margin-bottom:56px;
+}
+.sport-card{
+  background:var(--pitch-2);padding:30px 24px;
+}
+.sport-card .age{
+  display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.06em;
+  color:var(--pitch);background:var(--gold);padding:4px 9px;border-radius:2px;margin-bottom:16px;
+}
+.sport-card h3{color:var(--white);font-size:17px;margin-bottom:10px;}
+.sport-card p{font-size:14px;color:rgba(255,255,255,0.65);}
+.sport-note{
+  border-top:1px solid rgba(255,255,255,0.15);padding-top:28px;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.sport-note p{font-size:13.5px;color:rgba(255,255,255,0.55);max-width:560px;}
+
+/* ---------- OM OSS ---------- */
+.about-grid{
+  display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:center;
+}
+.about-photo{
+  width:280px;height:340px;background:var(--paper);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;color:var(--muted);text-align:center;padding:20px;
+}
+.about-text h2{font-size:30px;margin-bottom:18px;}
+.about-text p{font-size:16px;color:var(--muted);max-width:520px;margin-bottom:10px;}
+.about-meta{
+  display:flex;gap:32px;margin-top:26px;flex-wrap:wrap;
+}
+.about-meta div .k{font-size:12px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;}
+.about-meta div .v{font-size:15px;font-weight:700;color:var(--navy);}
+
+/* ---------- KONTAKT ---------- */
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;
+}
+.contact-info h2{font-size:32px;margin-bottom:16px;}
+.contact-info p{font-size:16px;color:var(--muted);max-width:380px;margin-bottom:28px;}
+.contact-detail{margin-bottom:14px;font-size:14.5px;}
+.contact-detail .k{color:var(--muted);}
+.contact-detail .v{color:var(--navy);font-weight:700;}
+
+.form{display:flex;flex-direction:column;gap:16px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.field label{display:block;font-size:12.5px;font-weight:700;color:var(--muted);margin-bottom:7px;letter-spacing:.02em;}
+.field input, .field textarea{
+  width:100%;border:1px solid var(--line);background:var(--paper);
+  padding:13px 14px;font-family:inherit;font-size:14.5px;color:var(--ink);border-radius:2px;
+}
+.field textarea{resize:vertical;min-height:96px;}
+.field input:focus, .field textarea:focus{outline:2px solid var(--navy);outline-offset:1px;}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  font-size:13.5px;
+}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap;}
+.footer-links a:hover{color:var(--white);}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  nav{display:none;}
+  .hero-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:38px;}
+  .service-grid{grid-template-columns:1fr 1fr;}
+  .price-flow{grid-template-columns:1fr 1fr;row-gap:32px;}
+  .price-flow::before{display:none;}
+  .process-item{grid-template-columns:40px 1fr;}
+  .process-item div:nth-child(3){grid-column:2;}
+  .sport-grid{grid-template-columns:1fr 1fr;}
+  .about-grid{grid-template-columns:1fr;}
+  .about-photo{width:100%;}
+  .contact-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+}
+@media (max-width:560px){
+  .wrap{padding:0 20px;}
+  .service-grid, .sport-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:32px;}
+  .header-inner .btn{padding:10px 16px;font-size:13px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none !important;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <div class="logo">Juridify.</div>
+    <nav>
+      <a class="navlink" href="#tjanster">Juridik</a>
+      <a class="navlink" href="#sport">Sport</a>
+      <a class="navlink" href="#om-oss">Om oss</a>
+      <a class="navlink" href="#kontakt">Kontakt</a>
+      <a class="lang" href="#"><span>SE</span> / EN</a>
+    </nav>
+    <a class="btn" href="#kontakt">Boka möte</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Juridify — Göteborg</div>
+      <h1>Juridisk hjälp till fast pris.</h1>
+      <p class="lead">Avtal upprättas och granskas. Fast pris. Ingen timdebitering.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="#kontakt">Boka kostnadsfritt möte</a>
+        <a class="btn btn-outline" href="#tjanster">Se tjänster</a>
+      </div>
+      <div class="hero-note">Direktkontakt med ansvarig jurist. Inga mellanhänder.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TJÄNSTER -->
+<section id="tjanster">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Tjänster</div>
+      <h2>Fyra sätt att hjälpa.</h2>
+    </div>
+
+    <div class="service-grid">
+      <a class="service-card" href="[LÄNK: Google Form – Avtalsupprättande]" target="_blank" rel="noopener">
+        <h3>Avtalsupprättande</h3>
+        <p>Skräddarsydda avtal. Ingen mall.</p>
+        <span class="card-arrow">↗</span>
+      </a>
+      <a class="service-card" href="[LÄNK: Google Form – Avtalsgranskning]" target="_blank" rel="noopener">
+        <h3>Avtalsgranskning</h3>
+        <p>Befintligt avtal granskas. Risker identifieras och förklaras.</p>
+        <span class="card-arrow">↗</span>
+      </a>
+      <a class="service-card" href="[LÄNK: Google Form – Avtalsförhandling]" target="_blank" rel="noopener">
+        <h3>Avtalsförhandling</h3>
+        <p>Förhandling förs å klientens vägnar. Villkor säkras inför avtalstecknande.</p>
+        <span class="card-arrow">↗</span>
+      </a>
+      <a class="service-card" href="[LÄNK: Google Form – Övrig hantering]" target="_blank" rel="noopener">
+        <h3>Övrig hantering av kommersiella avtal</h3>
+        <p>Löpande avtalsfrågor hanteras utanför standardtjänsterna ovan.</p>
+        <span class="card-arrow">↗</span>
+      </a>
+    </div>
+
+    <div class="service-tags">
+      <span class="tag">Anställningsavtal</span>
+      <span class="tag">Aktieägaravtal</span>
+      <span class="tag">Konsultavtal</span>
+      <span class="tag">Sekretessavtal</span>
+      <span class="tag">Samarbetsavtal</span>
+      <span class="tag">Användarvillkor</span>
+      <span class="tag">Aktieöverlåtelseavtal</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRIS -->
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pris</div>
+      <h2>Fast pris. Fyra steg.</h2>
+    </div>
+
+    <div class="price-flow">
+      <div class="price-step">
+        <div class="price-num">1</div>
+        <p>Ärendet beskrivs.</p>
+      </div>
+      <div class="price-step">
+        <div class="price-num">2</div>
+        <p>Offert med fast pris skickas.</p>
+      </div>
+      <div class="price-step">
+        <div class="price-num">3</div>
+        <p>Offert godkänns och betalas på plattformen.</p>
+      </div>
+      <div class="price-step">
+        <div class="price-num">4</div>
+        <p>Uppdragsbekräftelse skickas direkt. Arbetet påbörjas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Process</div>
+      <h2>Så går det till.</h2>
+    </div>
+
+    <div class="process-list">
+      <div class="process-item">
+        <div class="num">01</div>
+        <h3>Kontakt</h3>
+        <p>Möte bokas via kalender eller formulär.</p>
+      </div>
+      <div class="process-item">
+        <div class="num">02</div>
+        <h3>Möte</h3>
+        <p>Ärendet gås igenom. Digitalt, per telefon eller i Göteborg.</p>
+      </div>
+      <div class="process-item">
+        <div class="num">03</div>
+        <h3>Offert</h3>
+        <p>Fast pris presenteras. Betalning sker på plattformen vid godkännande.</p>
+      </div>
+      <div class="process-item">
+        <div class="num">04</div>
+        <h3>Leverans</h3>
+        <p>Löpande uppdatering under arbetets gång.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPORT -->
+<section id="sport" class="sport">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Juridify Sport</div>
+      <h2>Utveckling, ekonomi och juridiskt skydd. 7–19 år.</h2>
+      <p>Spelarutveckling, ekonomisk rådgivning och juridiskt skydd för unga fotbollsspelare.</p>
+    </div>
+
+    <div class="sport-grid">
+      <div class="sport-card">
+        <span class="age">7–19 ÅR</span>
+        <h3>Individuell utveckling</h3>
+        <p>En-mot-en-sessioner anpassade efter ålder och nivå.</p>
+      </div>
+      <div class="sport-card">
+        <span class="age">SPELARE & FAMILJ</span>
+        <h3>Ekonomisk rådgivning</h3>
+        <p>Kontrakt och ersättningar förklaras. Ekonomisk grund byggs tidigt.</p>
+      </div>
+      <div class="sport-card">
+        <span class="age">VID KLUBBYTE</span>
+        <h3>Juridiskt skydd</h3>
+        <p>Avtal granskas. Rättigheter säkras vid övergång.</p>
+      </div>
+      <div class="sport-card">
+        <span class="age">AMATÖR → PROFFS</span>
+        <h3>Väg till proffs</h3>
+        <p>Stöd genom hela resan, inklusive representation.</p>
+      </div>
+    </div>
+
+    <div class="sport-note">
+      <p>Målsmans godkännande krävs vid bokning för spelare under 18 år. Representationsavtal följer SvFF:s och FIFA:s regelverk för spelaragenter och minderåriga.</p>
+      <a class="btn btn-gold" href="#kontakt">Boka session</a>
+    </div>
+  </div>
+</section>
+
+<!-- OM OSS -->
+<section id="om-oss">
+  <div class="wrap about-grid">
+    <div class="about-photo">Foto: Haval Ibrahim</div>
+    <div class="about-text">
+      <h2>Om Juridify</h2>
+      <p>Juridify grundades av Haval Ibrahim, jur.kand., Göteborg.</p>
+      <p>Inga mellanhänder. Direktkontakt med ansvarig jurist genom hela ärendet.</p>
+      <div class="about-meta">
+        <div><div class="k">Grundare</div><div class="v">Haval Ibrahim</div></div>
+        <div><div class="k">Titel</div><div class="v">Jur.kand.</div></div>
+        <div><div class="k">Bas</div><div class="v">Göteborg</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt" class="section-alt">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <h2>Kontakt</h2>
+      <p>Möte bokas i kalendern eller via formuläret.</p>
+      <div class="contact-detail"><span class="k">E-post: </span><span class="v">kontakt@juridify.se</span></div>
+      <div class="contact-detail"><span class="k">Telefon: </span><span class="v">[TELEFONNUMMER]</span></div>
+      <div class="contact-detail"><span class="k">Plats: </span><span class="v">Göteborg</span></div>
+    </div>
+
+    <form class="form" onsubmit="return false;">
+      <div class="form-row">
+        <div class="field">
+          <label for="namn">Namn</label>
+          <input id="namn" type="text" placeholder="Förnamn Efternamn">
+        </div>
+        <div class="field">
+          <label for="foretag">Företag / Klubb</label>
+          <input id="foretag" type="text" placeholder="Valfritt">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="epost">E-post</label>
+          <input id="epost" type="email" placeholder="namn@exempel.se">
+        </div>
+        <div class="field">
+          <label for="telefon">Telefon</label>
+          <input id="telefon" type="tel" placeholder="07X-XXX XX XX">
+        </div>
+      </div>
+      <div class="field">
+        <label for="arende">Ärende</label>
+        <textarea id="arende" placeholder="Beskriv kort vad det gäller."></textarea>
+      </div>
+      <button class="btn" type="submit" style="align-self:flex-start;">Skicka</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>© 2026 Juridify · Göteborg</div>
+    <div class="footer-links">
+      <a href="#">Allmänna villkor</a>
+      <a href="#">Integritetspolicy</a>
+      <a href="#">kontakt@juridify.se</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
