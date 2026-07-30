@@ -37,6 +37,7 @@ section{padding:40px 0;}
 .cta-box h2{font-size:24px;margin-bottom:10px;}
 .cta-box p{color:var(--muted);margin-bottom:22px;}
 footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:36px 0;margin-top:40px;}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;}
 .footer-inner{max-width:1180px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13.5px;}
 @media(max-width:640px){.hero h1{font-size:30px;}}
 </style>
@@ -91,11 +92,45 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:36px 0;margin-
 </section>
 
 <footer>
-  <div class="footer-inner">
-    <div>© 2026 Juridify · Göteborg</div>
-    <div><a href="mailto:info@juridify.se">info@juridify.se</a></div>
+    <div class="footer-inner">
+    <div>© 2026 Juridify AB · Org.nr 559566-5752 · Göteborg</div>
+    <div class="footer-links">
+      <a href="villkor.html">Allmänna villkor</a>
+      <a href="integritetspolicy.html">Integritetspolicy</a>
+      <a href="cookiepolicy.html">Cookie-policy</a>
+      <a href="mailto:info@juridify.se">info@juridify.se</a>
+    </div>
   </div>
 </footer>
+
+<div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#0B2545;color:#fff;padding:20px 24px;box-shadow:0 -8px 24px rgba(0,0,0,0.15);">
+  <div style="max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:'Manrope',sans-serif;">
+    <p style="font-size:13.5px;line-height:1.5;color:rgba(255,255,255,0.85);margin:0;max-width:640px;">
+      Vi använder cookies för att webbplatsen ska fungera, inklusive för bokningskalendern. Läs mer i vår <a href="cookiepolicy.html" style="color:#C9A24B;text-decoration:underline;">cookie-policy</a>.
+    </p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="juridifyDeclineCookies()" style="background:transparent;color:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.3);padding:11px 18px;font-family:inherit;font-weight:700;font-size:13.5px;border-radius:2px;cursor:pointer;">Endast nödvändiga</button>
+      <button onclick="juridifyAcceptCookies()" style="background:#C9A24B;color:#0B2545;border:1px solid #C9A24B;padding:11px 22px;font-family:inherit;font-weight:800;font-size:13.5px;border-radius:2px;cursor:pointer;">Acceptera</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  try{
+    if(!localStorage.getItem('juridify_cookie_consent')){
+      document.getElementById('cookie-consent').style.display = 'block';
+    }
+  }catch(e){}
+})();
+function juridifyAcceptCookies(){
+  try{ localStorage.setItem('juridify_cookie_consent','accepted'); }catch(e){}
+  document.getElementById('cookie-consent').style.display = 'none';
+}
+function juridifyDeclineCookies(){
+  try{ localStorage.setItem('juridify_cookie_consent','necessary-only'); }catch(e){}
+  document.getElementById('cookie-consent').style.display = 'none';
+}
+</script>
 
 </body>
 </html>
