@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avtalsgranskning — Juridify</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{
+  --navy:#0B2545;--navy-2:#122f5c;--gold:#C9A24B;--paper:#F7F8FA;--white:#FFFFFF;
+  --ink:#1A1A1A;--muted:#5B6472;--line:#E3E6EB;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Manrope',sans-serif;color:var(--ink);background:var(--white);line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+.wrap{max-width:900px;margin:0 auto;padding:0 32px;}
+h1,h2,h3{font-weight:800;letter-spacing:-0.02em;color:var(--navy);}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.header-inner{max-width:1180px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:76px;}
+.logo{font-weight:800;font-size:22px;color:var(--navy);}
+.btn{display:inline-flex;align-items:center;background:var(--navy);color:var(--white);font-weight:700;font-size:14.5px;padding:13px 24px;border-radius:2px;border:1px solid var(--navy);white-space:nowrap;}
+.btn:hover{background:var(--navy-2);}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--navy);}
+.btn-gold:hover{background:#b8913f;border-color:#b8913f;}
+.back-link{font-size:14px;color:var(--muted);font-weight:600;}
+.back-link:hover{color:var(--navy);}
+.hero{padding:64px 0 48px;}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.hero h1{font-size:40px;line-height:1.1;margin-bottom:18px;}
+.hero p.lead{font-size:17px;color:var(--muted);max-width:600px;}
+section{padding:40px 0;}
+.card-list{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0;}
+.card-list-item{background:var(--white);padding:26px 28px;}
+.card-list-item h3{font-size:17px;margin-bottom:8px;}
+.card-list-item p{font-size:14.5px;color:var(--muted);}
+.step-list{border-top:1px solid var(--line);margin:24px 0;}
+.step-item{display:grid;grid-template-columns:44px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);}
+.step-item .n{font-weight:800;color:var(--gold);font-size:15px;}
+.step-item h3{font-size:16px;margin-bottom:6px;}
+.step-item p{font-size:14.5px;color:var(--muted);}
+.cta-box{background:var(--paper);border:1px solid var(--line);padding:36px;text-align:center;margin:48px 0 16px;}
+.cta-box h2{font-size:24px;margin-bottom:10px;}
+.cta-box p{color:var(--muted);margin-bottom:22px;}
+footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:36px 0;margin-top:40px;}
+.footer-inner{max-width:1180px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+@media(max-width:640px){.hero h1{font-size:30px;} .step-item{grid-template-columns:32px 1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">Juridify.</a>
+    <a class="btn" href="index.html#kalender">Boka direkt i kalendern</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <a class="back-link" href="index.html#tjanster">← Tillbaka till tjänster</a>
+    <div class="eyebrow" style="margin-top:20px;">Tjänst — Avtalsgranskning</div>
+    <h1>Avtalsgranskning.</h1>
+    <p class="lead">Vi tillhandahåller högkvalitativa granskningstjänster för dina avtal — så att ni vet exakt vad ni skriver under på.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 style="font-size:22px;margin-bottom:8px;">Vad ingår</h2>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="n">01</div>
+        <div><h3>Genomgång av avtalet</h3><p>Vi läser igenom avtalet i sin helhet och identifierar otydliga eller riskfyllda villkor.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="n">02</div>
+        <div><h3>Riskbedömning</h3><p>Vi bedömer vilka villkor som medför juridisk eller ekonomisk risk för er, och hur allvarlig risken är.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="n">03</div>
+        <div><h3>Skriftligt utlåtande</h3><p>Ni får en tydlig sammanfattning på klarspråk — inte bara en lista med juridiska termer.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="n">04</div>
+        <div><h3>Förslag på ändringar</h3><p>Konkreta ändringsförslag ni kan ta med tillbaka till motparten, vid behov med vårt stöd i förhandlingen.</p></div>
+      </div>
+    </div>
+
+    <h2 style="font-size:22px;margin:32px 0 8px;">Avtal vi granskar</h2>
+    <p style="color:var(--muted);font-size:15px;">Samma avtalstyper som vi upprättar — anställningsavtal, sekretessavtal, konsultavtal, tjänsteavtal, aktieägaravtal, aktieöverlåtelseavtal, sponsoravtal, licensavtal och personuppgiftsbiträdesavtal — samt avtal skrivna av andra parter.</p>
+
+    <div class="cta-box">
+      <h2>Har ni ett avtal som behöver granskas?</h2>
+      <p>Skicka in det via formuläret, så återkommer vi med ett fast pris.</p>
+      <a class="btn btn-gold" href="index.html#kontakt">Skicka avtal för granskning</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>© 2026 Juridify · Göteborg</div>
+    <div><a href="mailto:info@juridify.se">info@juridify.se</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

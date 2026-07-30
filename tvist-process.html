@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tvist & Process — Juridify</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{
+  --navy:#0B2545;--navy-2:#122f5c;--gold:#C9A24B;--paper:#F7F8FA;--white:#FFFFFF;
+  --ink:#1A1A1A;--muted:#5B6472;--line:#E3E6EB;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Manrope',sans-serif;color:var(--ink);background:var(--white);line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+.wrap{max-width:900px;margin:0 auto;padding:0 32px;}
+h1,h2,h3{font-weight:800;letter-spacing:-0.02em;color:var(--navy);}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.header-inner{max-width:1180px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:76px;}
+.logo{font-weight:800;font-size:22px;color:var(--navy);}
+.btn{display:inline-flex;align-items:center;background:var(--navy);color:var(--white);font-weight:700;font-size:14.5px;padding:13px 24px;border-radius:2px;border:1px solid var(--navy);white-space:nowrap;}
+.btn:hover{background:var(--navy-2);}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--navy);}
+.btn-gold:hover{background:#b8913f;border-color:#b8913f;}
+.back-link{font-size:14px;color:var(--muted);font-weight:600;}
+.back-link:hover{color:var(--navy);}
+.hero{padding:64px 0 48px;}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.hero h1{font-size:40px;line-height:1.1;margin-bottom:18px;}
+.hero p.lead{font-size:17px;color:var(--muted);max-width:600px;}
+section{padding:40px 0;}
+.card-list{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0;}
+.card-list-item{background:var(--white);padding:26px 28px;}
+.card-list-item h3{font-size:17px;margin-bottom:8px;}
+.card-list-item p{font-size:14.5px;color:var(--muted);}
+.step-list{border-top:1px solid var(--line);margin:24px 0;}
+.step-item{display:grid;grid-template-columns:44px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);}
+.step-item .n{font-weight:800;color:var(--gold);font-size:15px;}
+.step-item h3{font-size:16px;margin-bottom:6px;}
+.step-item p{font-size:14.5px;color:var(--muted);}
+.cta-box{background:var(--paper);border:1px solid var(--line);padding:36px;text-align:center;margin:48px 0 16px;}
+.cta-box h2{font-size:24px;margin-bottom:10px;}
+.cta-box p{color:var(--muted);margin-bottom:22px;}
+.notice{background:#FBF6EA;border:1px solid #E9D8A6;padding:16px 20px;font-size:14px;color:#5B4A1F;margin:24px 0;border-radius:4px;}
+footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:36px 0;margin-top:40px;}
+.footer-inner{max-width:1180px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+@media(max-width:640px){.hero h1{font-size:30px;} .step-item{grid-template-columns:32px 1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">Juridify.</a>
+    <a class="btn" href="index.html#kalender">Boka direkt i kalendern</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <a class="back-link" href="index.html#tjanster">← Tillbaka till tjänster</a>
+    <div class="eyebrow" style="margin-top:20px;">Tjänst — Tvist &amp; Process</div>
+    <h1>Tvist &amp; Process.</h1>
+    <p class="lead">Stöd genom hela processen — från första kravet till eventuell domstolsprocess.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 style="font-size:22px;margin-bottom:8px;">Så går en tvist till väga</h2>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="n">01</div>
+        <div><h3>Bedömning av ärendet</h3><p>Vi går igenom underlaget och bedömer förutsättningarna, riskerna och möjliga vägar framåt.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="n">02</div>
+        <div><h3>Kravbrev</h3><p>Ett formellt krav skickas till motparten innan en rättslig process inleds, i syfte att lösa tvisten utan domstol.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="n">03</div>
+        <div><h3>Förhandling</h3><p>Vi för dialogen med motparten eller dennes ombud, med målet att nå en förlikning.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="n">04</div>
+        <div><h3>Stämningsansökan</h3><p>Om förlikning inte nås upprättar vi en stämningsansökan och inleder process vid tingsrätten.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="n">05</div>
+        <div><h3>Företrädande i domstol</h3><p>Vi företräder er genom hela den rättsliga processen, med fullmakt att agera för er räkning.</p></div>
+      </div>
+    </div>
+
+    <h2 style="font-size:22px;margin:32px 0 8px;">Rättshandlingar vi upprättar</h2>
+
+    <div class="card-list">
+      <div class="card-list-item">
+        <h3>Kravbrev</h3>
+        <p>Ett formellt, skriftligt krav till motparten som redogör för anspråket och ger en tidsfrist för svar — ofta det första steget i en tvist.</p>
+      </div>
+      <div class="card-list-item">
+        <h3>Ansökan om rättsskydd</h3>
+        <p>Vi hjälper er ansöka om rättsskydd genom er försäkring, vilket kan täcka en del av kostnaderna för en rättslig process.</p>
+      </div>
+      <div class="card-list-item">
+        <h3>Stämningsansökan</h3>
+        <p>Den formella handling som inleder en domstolsprocess, med yrkanden, grunder och bevisning presenterade för tingsrätten.</p>
+      </div>
+      <div class="card-list-item">
+        <h3>Rättegångsfullmakt</h3>
+        <p>Fullmakten som ger oss rätt att företräda er i domstol och vidta rättsliga åtgärder för er räkning under processens gång.</p>
+      </div>
+    </div>
+
+    <div class="notice">Rättsskydd och eventuella tvistlösningskostnader varierar beroende på försäkring och ärende. Vi går igenom vad som gäller i ert specifika fall vid det inledande mötet.</div>
+
+    <div class="cta-box">
+      <h2>Har ni hamnat i en tvist?</h2>
+      <p>Beskriv ärendet så bedömer vi läget och nästa steg.</p>
+      <a class="btn btn-gold" href="index.html#kontakt">Beskriv ert ärende</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>© 2026 Juridify · Göteborg</div>
+    <div><a href="mailto:info@juridify.se">info@juridify.se</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

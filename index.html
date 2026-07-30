@@ -111,28 +111,46 @@ section{padding:96px 0;}
 .section-alt{background:var(--paper);}
 
 /* ---------- TJÄNSTER ---------- */
-.service-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  background:var(--line);border:1px solid var(--line);
+.service-title{
+  text-align:center;font-weight:800;font-size:40px;letter-spacing:.02em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:48px;
 }
-.service-card{
-  background:var(--white);padding:34px 28px;
-  display:block;position:relative;
+.service-grid-v2{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;
+}
+.service-card-v2{
+  position:relative;display:block;background:var(--white);
+  border-radius:18px;padding:44px 92px 40px 40px;
+  box-shadow:0 18px 40px -18px rgba(11,37,69,0.18);
+  text-decoration:none;color:inherit;overflow:hidden;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.service-card-v2:hover{transform:translateY(-3px);box-shadow:0 24px 48px -16px rgba(11,37,69,0.24);}
+.service-icon{width:84px;height:84px;margin-bottom:20px;}
+.service-card-v2 h3{font-size:24px;font-weight:800;color:var(--ink);margin-bottom:12px;}
+.service-card-v2 p{font-size:15.5px;color:var(--muted);max-width:320px;}
+.mer-tab{
+  position:absolute;top:0;right:0;bottom:0;width:56px;
+  background:var(--navy);color:var(--white);
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+  padding:22px 0;border-radius:0 18px 18px 0;
+}
+.mer-label{
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  font-size:12.5px;font-weight:800;letter-spacing:.12em;
+}
+.mer-chevron{font-size:22px;line-height:1;color:var(--gold);}
+.service-cta-wrap{text-align:center;margin-top:44px;}
+.btn-pill{
+  display:inline-block;background:var(--navy);color:var(--white);
+  font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:14px;
+  padding:17px 44px;border-radius:999px;
   transition:background .18s ease;
 }
-.service-card:hover{background:var(--paper);}
-.service-card:hover .card-arrow{transform:translate(3px,-3px);opacity:1;}
-.service-card h3{font-size:18px;margin-bottom:12px;padding-right:20px;}
-.service-card p{font-size:14.5px;color:var(--muted);}
-.card-arrow{
-  position:absolute;top:34px;right:28px;
-  font-size:16px;color:var(--gold);opacity:.55;
-  transition:transform .18s ease, opacity .18s ease;
-}
-.service-card:focus-visible{outline:2px solid var(--navy);outline-offset:-2px;}
+.btn-pill:hover{background:var(--navy-2);}
 .service-tags{
   margin-top:44px;padding-top:32px;border-top:1px solid var(--line);
-  display:flex;flex-wrap:wrap;gap:10px 12px;
+  display:flex;flex-wrap:wrap;gap:10px 12px;justify-content:center;
 }
 .tag{
   font-size:13px;font-weight:600;color:var(--navy);
@@ -225,7 +243,12 @@ section{padding:96px 0;}
 
 /* ---------- KONTAKT ---------- */
 .contact-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:64px;
+  display:block;max-width:640px;margin:0 auto;
+}
+.contact-grid .contact-info{margin-bottom:36px;}
+.service-fields{
+  margin:4px 0 8px;padding:20px 20px 4px;
+  background:var(--paper);border:1px solid var(--line);border-radius:6px;
 }
 /* ---------- KONTAKT ---------- */
 .calendar-embed{
@@ -268,7 +291,8 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
   nav{display:none;}
   .hero-grid{grid-template-columns:1fr;}
   .hero h1{font-size:38px;}
-  .service-grid{grid-template-columns:1fr 1fr;}
+  .service-grid-v2{grid-template-columns:1fr;}
+  .service-card-v2{padding:36px 70px 32px 28px;}
   .price-flow{grid-template-columns:1fr 1fr;row-gap:32px;}
   .price-flow::before{display:none;}
   .process-item{grid-template-columns:40px 1fr;}
@@ -276,13 +300,12 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
   .sport-grid{grid-template-columns:1fr 1fr;}
   .about-grid{grid-template-columns:1fr;}
   .about-photo{width:100%;height:auto;max-height:380px;}
-  .contact-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
   .calendly-inline-widget{height:640px !important;}
 }
 @media (max-width:560px){
   .wrap{padding:0 20px;}
-  .service-grid, .sport-grid{grid-template-columns:1fr;}
+  .sport-grid{grid-template-columns:1fr;}
   .hero h1{font-size:32px;}
   .header-inner .btn{padding:10px 16px;font-size:13px;}
 }
@@ -313,46 +336,89 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Juridify — Göteborg</div>
-      <h1>Juridisk hjälp till fast pris.</h1>
-      <p class="lead">Avtal upprättas och granskas. Fast pris. Ingen timdebitering.</p>
+      <div class="eyebrow">Juridify — Digitalt</div>
+      <h1>Juridisk hjälp för företag.</h1>
+      <p class="lead">Avtal upprättas och granskas till fast pris. Specialisering inom affärsjuridik och avtalsrätt.</p>
       <div class="hero-ctas">
-        <a class="btn btn-gold" href="#tjanster">Se tjänster</a>
+        <a class="btn btn-gold" href="#kalender">Boka ett kostnadsfritt möte</a>
+        <a class="btn btn-outline" href="#tjanster">Se tjänster</a>
       </div>
-      <div class="hero-note">Direktkontakt med ansvarig jurist. Inga mellanhänder.</div>
+      <div class="hero-note">Få kontakt direkt med ansvarig jurist.</div>
     </div>
   </div>
 </section>
 
 <!-- TJÄNSTER -->
-<section id="tjanster">
+<section id="tjanster" class="section-alt">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Tjänster</div>
-      <h2>Fyra sätt att hjälpa.</h2>
+    <div class="service-title">Tjänster</div>
+
+    <div class="service-grid-v2">
+      <a class="service-card-v2" href="avtal.html">
+        <svg class="service-icon" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 12h34l14 14v58a4 4 0 0 1-4 4H24a4 4 0 0 1-4-4V16a4 4 0 0 1 4-4z" stroke="var(--navy)" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M58 12v14h14" stroke="var(--navy)" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M32 34h20M32 42h26" stroke="var(--navy)" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M30 74l4-12 24-24 8 8-24 24-12 4z" fill="var(--white)" stroke="var(--navy)" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M54 42l8 8" stroke="var(--navy)" stroke-width="3.5"/>
+        </svg>
+        <h3>Avtal</h3>
+        <p>Vi utformar professionella avtal på både svenska och engelska.</p>
+        <span class="mer-tab"><span class="mer-label">MER</span><span class="mer-chevron">›</span></span>
+      </a>
+
+      <a class="service-card-v2" href="avtalsgranskning.html">
+        <svg class="service-icon" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 12h30l14 14v56a4 4 0 0 1-4 4H30a4 4 0 0 1-4-4V16a4 4 0 0 1 4-4z" stroke="var(--navy)" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M60 12v14h14" stroke="var(--navy)" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M62 46h6M62 56h6" stroke="var(--navy)" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="40" cy="52" r="15" fill="var(--white)" stroke="var(--navy)" stroke-width="3.5"/>
+          <path d="M35 52a5 5 0 0 1 5-5" stroke="var(--navy)" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M50.5 62.5L60 72" stroke="var(--navy)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <h3>Avtalsgranskning</h3>
+        <p>Vi tillhandahåller högkvalitativa granskningstjänster för dina avtal.</p>
+        <span class="mer-tab"><span class="mer-label">MER</span><span class="mer-chevron">›</span></span>
+      </a>
+
+      <a class="service-card-v2" href="tvist-process.html">
+        <svg class="service-icon" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M48 14v66" stroke="var(--navy)" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M28 22h40" stroke="var(--navy)" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M18 30l-10 20a10 10 0 0 0 20 0z" stroke="var(--navy)" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M78 30l-10 20a10 10 0 0 0 20 0z" stroke="var(--navy)" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M18 30l10-6M78 30l-10-6" stroke="var(--navy)" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M34 82h28" stroke="var(--navy)" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Tvist &amp; Process</h3>
+        <p>Stöd vid tvister — från kravbrev till stämningsansökan och företrädande i domstol.</p>
+        <span class="mer-tab"><span class="mer-label">MER</span><span class="mer-chevron">›</span></span>
+      </a>
+
+      <a class="service-card-v2" href="utbildningar.html">
+        <svg class="service-icon" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 34L48 16l40 18-40 18z" stroke="var(--navy)" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M26 42v18c0 5 10 12 22 12s22-7 22-12V42" stroke="var(--navy)" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M88 34v22" stroke="var(--navy)" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Utbildningar</h3>
+        <p>ABK09, GDPR, cybersäkerhet, informationssäkerhet och avtal — anpassat efter er.</p>
+        <span class="mer-tab"><span class="mer-label">MER</span><span class="mer-chevron">›</span></span>
+      </a>
+
+      <a class="service-card-v2" href="konsultation.html">
+        <svg class="service-icon" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 22h68a4 4 0 0 1 4 4v34a4 4 0 0 1-4 4H40l-18 16V64H14a4 4 0 0 1-4-4V26a4 4 0 0 1 4-4z" stroke="var(--navy)" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M26 38h44M26 48h30" stroke="var(--navy)" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Övrig konsultation</h3>
+        <p>Rådgivning anpassad för er verksamhet, utifrån er specifika förfrågan.</p>
+        <span class="mer-tab"><span class="mer-label">MER</span><span class="mer-chevron">›</span></span>
+      </a>
     </div>
 
-    <div class="service-grid">
-      <a class="service-card" href="[LÄNK: Google Form – Avtalsupprättande]" target="_blank" rel="noopener">
-        <h3>Avtalsupprättande</h3>
-        <p>Skräddarsydda avtal. Ingen mall.</p>
-        <span class="card-arrow">↗</span>
-      </a>
-      <a class="service-card" href="[LÄNK: Google Form – Avtalsgranskning]" target="_blank" rel="noopener">
-        <h3>Avtalsgranskning</h3>
-        <p>Befintligt avtal granskas. Risker identifieras och förklaras.</p>
-        <span class="card-arrow">↗</span>
-      </a>
-      <a class="service-card" href="[LÄNK: Google Form – Avtalsförhandling]" target="_blank" rel="noopener">
-        <h3>Avtalsförhandling</h3>
-        <p>Förhandling förs å klientens vägnar. Villkor säkras inför avtalstecknande.</p>
-        <span class="card-arrow">↗</span>
-      </a>
-      <a class="service-card" href="[LÄNK: Google Form – Övrig hantering]" target="_blank" rel="noopener">
-        <h3>Övrig hantering av kommersiella avtal</h3>
-        <p>Löpande avtalsfrågor hanteras utanför standardtjänsterna ovan.</p>
-        <span class="card-arrow">↗</span>
-      </a>
+    <div class="service-cta-wrap">
+      <a class="btn-pill" href="#kontakt">Kontakta oss</a>
     </div>
 
     <div class="service-tags">
@@ -360,70 +426,39 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
       <span class="tag">Aktieägaravtal</span>
       <span class="tag">Konsultavtal</span>
       <span class="tag">Sekretessavtal</span>
-      <span class="tag">Samarbetsavtal</span>
-      <span class="tag">Användarvillkor</span>
+      <span class="tag">Tjänsteavtal</span>
       <span class="tag">Aktieöverlåtelseavtal</span>
-    </div>
-  </div>
-</section>
-
-<!-- PRIS -->
-<section class="section-alt">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Pris</div>
-      <h2>Fast pris. Fyra steg.</h2>
-    </div>
-
-    <div class="price-flow">
-      <div class="price-step">
-        <div class="price-num">1</div>
-        <p>Ärendet beskrivs.</p>
-      </div>
-      <div class="price-step">
-        <div class="price-num">2</div>
-        <p>Offert med fast pris skickas.</p>
-      </div>
-      <div class="price-step">
-        <div class="price-num">3</div>
-        <p>Offert godkänns och betalas på plattformen.</p>
-      </div>
-      <div class="price-step">
-        <div class="price-num">4</div>
-        <p>Uppdragsbekräftelse skickas direkt. Arbetet påbörjas.</p>
-      </div>
+      <span class="tag">Sponsoravtal</span>
+      <span class="tag">Licensavtal</span>
+      <span class="tag">Personuppgiftsbiträdesavtal</span>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section>
+<section class="section-alt">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Process</div>
       <h2>Så går det till.</h2>
     </div>
 
-    <div class="process-list">
-      <div class="process-item">
-        <div class="num">01</div>
-        <h3>Kontakt</h3>
-        <p>Möte bokas via kalender eller formulär.</p>
+    <div class="price-flow">
+      <div class="price-step">
+        <div class="price-num">1</div>
+        <p>Ärendet beskrivs via formuläret.</p>
       </div>
-      <div class="process-item">
-        <div class="num">02</div>
-        <h3>Möte</h3>
-        <p>Ärendet gås igenom. Digitalt eller i Göteborg.</p>
+      <div class="price-step">
+        <div class="price-num">2</div>
+        <p>Fast pris tas fram utifrån lämnad information.</p>
       </div>
-      <div class="process-item">
-        <div class="num">03</div>
-        <h3>Offert</h3>
-        <p>Fast pris presenteras. Betalning sker på plattformen vid godkännande.</p>
+      <div class="price-step">
+        <div class="price-num">3</div>
+        <p>Offert skickas för godkännande.</p>
       </div>
-      <div class="process-item">
-        <div class="num">04</div>
-        <h3>Leverans</h3>
-        <p>Löpande uppdatering under arbetets gång.</p>
+      <div class="price-step">
+        <div class="price-num">4</div>
+        <p>Ärendet bereds och hanteras av jurist.</p>
       </div>
     </div>
   </div>
@@ -475,7 +510,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
     <div class="about-text">
       <h2>Om Juridify</h2>
       <p>Juridify grundades av Haval Ibrahim, jur.kand., Göteborg.</p>
-      <p>Inga mellanhänder. Direktkontakt med ansvarig jurist genom hela ärendet.</p>
+      <p>Få kontakt direkt med ansvarig jurist genom hela ärendet.</p>
       <div class="about-meta">
         <div><div class="k">Grundare</div><div class="v">Haval Ibrahim</div></div>
         <div><div class="k">Titel</div><div class="v">Jur.kand.</div></div>
@@ -491,6 +526,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
     <div class="section-head">
       <div class="eyebrow">Boka möte</div>
       <h2>Boka direkt i kalendern.</h2>
+      <p style="font-size:16px;color:var(--muted);margin-top:14px;max-width:520px;">Kostnadsfritt rådgivningssamtal om er verksamhet eller ert ärende. Vi går igenom hur vi kan hjälpa er med juridiska och strategiska frågor. 30 minuter, tillsammans med en av våra jurister.</p>
     </div>
 
     <div class="calendar-embed">
@@ -502,15 +538,16 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
   <div class="wrap contact-grid">
     <div class="contact-info">
       <h2>Kontakt</h2>
-      <p>Möte bokas i kalendern ovan eller via formuläret.</p>
+      <p>Möte bokas i kalendern ovan eller via formuläret. Fast pris tas fram utifrån informationen ni lämnar.</p>
       <div class="contact-detail"><span class="k">E-post: </span><span class="v">info@juridify.se</span></div>
       <div class="contact-detail"><span class="k">Plats: </span><span class="v">Göteborg</span></div>
     </div>
 
-    <form class="form" action="https://formsubmit.co/info@juridify.se" method="POST">
-      <input type="hidden" name="_subject" value="Nytt meddelande från juridify.se">
+    <form class="form" action="https://formsubmit.co/info@juridify.se" method="POST" id="arendeform">
+      <input type="hidden" name="_subject" value="Nytt ärende från juridify.se">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
+
       <div class="form-row">
         <div class="field">
           <label for="namn">Namn</label>
@@ -525,14 +562,307 @@ footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:44px 0;}
         <label for="epost">E-post</label>
         <input id="epost" name="E-post" type="email" placeholder="namn@exempel.se" required>
       </div>
+
       <div class="field">
-        <label for="arende">Ärende</label>
-        <textarea id="arende" name="Ärende" placeholder="Beskriv kort vad det gäller." required></textarea>
+        <label for="tjanst">Vilken tjänst gäller ärendet?</label>
+        <select id="tjanst" name="Tjänst" required>
+          <option value="">Välj tjänst</option>
+          <option value="anstallning">Anställningsavtal</option>
+          <option value="sekretess">Sekretessavtal (NDA)</option>
+          <option value="konsult">Konsultavtal</option>
+          <option value="tjanste">Tjänsteavtal</option>
+          <option value="aktieagar">Aktieägaravtal</option>
+          <option value="aktieoverlatelse">Aktieöverlåtelseavtal</option>
+          <option value="sponsor">Sponsoravtal</option>
+          <option value="licens">Licensavtal</option>
+          <option value="gdpr">Personuppgiftsbiträdesavtal (GDPR)</option>
+          <option value="tvist">Tvist &amp; Process</option>
+          <option value="utbildning">Utbildning</option>
+          <option value="konsultation">Övrig konsultation</option>
+          <option value="ovrigt">Övrigt / annat ärende</option>
+        </select>
+      </div>
+
+      <!-- Anställningsavtal -->
+      <div class="service-fields" data-service="anstallning" hidden>
+        <div class="form-row">
+          <div class="field">
+            <label for="a_befattning">Befattning / titel</label>
+            <input id="a_befattning" name="Befattning" type="text" placeholder="T.ex. Projektledare">
+          </div>
+          <div class="field">
+            <label for="a_form">Anställningsform</label>
+            <select id="a_form" name="Anställningsform">
+              <option value="">Välj</option>
+              <option>Tillsvidareanställning</option>
+              <option>Tidsbegränsad anställning</option>
+              <option>Provanställning</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="a_grad">Sysselsättningsgrad</label>
+            <input id="a_grad" name="Sysselsättningsgrad" type="text" placeholder="T.ex. heltid, 100%">
+          </div>
+          <div class="field">
+            <label for="a_start">Tilltänkt startdatum</label>
+            <input id="a_start" name="Startdatum" type="text" placeholder="ÅÅÅÅ-MM-DD">
+          </div>
+        </div>
+      </div>
+
+      <!-- Sekretessavtal -->
+      <div class="service-fields" data-service="sekretess" hidden>
+        <div class="form-row">
+          <div class="field">
+            <label for="s_typ">Ömsesidigt eller ensidigt?</label>
+            <select id="s_typ" name="NDA-typ">
+              <option value="">Välj</option>
+              <option>Ömsesidigt</option>
+              <option>Ensidigt</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="s_motpart">Motpart (namn / org.nr)</label>
+            <input id="s_motpart" name="Motpart" type="text">
+          </div>
+        </div>
+        <div class="field">
+          <label for="s_syfte">Syfte med samarbetet</label>
+          <input id="s_syfte" name="Syfte" type="text" placeholder="Vad ska diskuteras eller delas?">
+        </div>
+      </div>
+
+      <!-- Konsultavtal -->
+      <div class="service-fields" data-service="konsult" hidden>
+        <div class="field">
+          <label for="k_uppdrag">Uppdragets art</label>
+          <input id="k_uppdrag" name="Uppdragets art" type="text" placeholder="Kort beskrivning av uppdraget">
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="k_tid">Uppskattad avtalstid</label>
+            <input id="k_tid" name="Avtalstid" type="text" placeholder="T.ex. 3 månader">
+          </div>
+          <div class="field">
+            <label for="k_arvode">Arvodesmodell</label>
+            <select id="k_arvode" name="Arvodesmodell">
+              <option value="">Välj</option>
+              <option>Fast pris</option>
+              <option>Löpande fakturering</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tjänsteavtal -->
+      <div class="service-fields" data-service="tjanste" hidden>
+        <div class="field">
+          <label for="t_omfattning">Tjänstens omfattning</label>
+          <input id="t_omfattning" name="Tjänstens omfattning" type="text" placeholder="Vad ska levereras?">
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="t_avtalstid">Avtalstid</label>
+            <select id="t_avtalstid" name="Avtalstid (tjänst)">
+              <option value="">Välj</option>
+              <option>Tidsbestämt</option>
+              <option>Tillsvidare</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="t_fakturering">Faktureringsmodell</label>
+            <input id="t_fakturering" name="Faktureringsmodell" type="text" placeholder="T.ex. fast avgift per månad">
+          </div>
+        </div>
+      </div>
+
+      <!-- Aktieägaravtal -->
+      <div class="service-fields" data-service="aktieagar" hidden>
+        <div class="form-row">
+          <div class="field">
+            <label for="ag_antal">Antal aktieägare</label>
+            <input id="ag_antal" name="Antal aktieägare" type="text">
+          </div>
+          <div class="field">
+            <label for="ag_fordelning">Ägarfördelning (ungefärlig)</label>
+            <input id="ag_fordelning" name="Ägarfördelning" type="text" placeholder="T.ex. 60/40">
+          </div>
+        </div>
+        <div class="field">
+          <label for="ag_fragor">Särskilda frågor att reglera</label>
+          <input id="ag_fragor" name="Särskilda frågor" type="text" placeholder="T.ex. hembud, rösträtt, styrelse">
+        </div>
+      </div>
+
+      <!-- Aktieöverlåtelseavtal -->
+      <div class="service-fields" data-service="aktieoverlatelse" hidden>
+        <div class="form-row">
+          <div class="field">
+            <label for="ao_bolag">Bolagets namn / org.nr</label>
+            <input id="ao_bolag" name="Bolag" type="text">
+          </div>
+          <div class="field">
+            <label for="ao_andel">Andel som överlåts</label>
+            <input id="ao_andel" name="Andel" type="text" placeholder="T.ex. 100%">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="ao_kopeskilling">Preliminär köpeskilling</label>
+            <input id="ao_kopeskilling" name="Köpeskilling" type="text">
+          </div>
+          <div class="field">
+            <label for="ao_tilltrade">Önskat tillträdesdatum</label>
+            <input id="ao_tilltrade" name="Tillträdesdatum" type="text" placeholder="ÅÅÅÅ-MM-DD">
+          </div>
+        </div>
+      </div>
+
+      <!-- Sponsoravtal -->
+      <div class="service-fields" data-service="sponsor" hidden>
+        <div class="form-row">
+          <div class="field">
+            <label for="sp_belopp">Sponsringsbelopp / resurser</label>
+            <input id="sp_belopp" name="Sponsringsbelopp" type="text">
+          </div>
+          <div class="field">
+            <label for="sp_period">Avtalsperiod</label>
+            <input id="sp_period" name="Sponsringsperiod" type="text" placeholder="T.ex. 12 månader">
+          </div>
+        </div>
+        <div class="field">
+          <label for="sp_motprestation">Önskad motprestation</label>
+          <input id="sp_motprestation" name="Motprestation" type="text" placeholder="T.ex. exponering, event">
+        </div>
+      </div>
+
+      <!-- Licensavtal -->
+      <div class="service-fields" data-service="licens" hidden>
+        <div class="field">
+          <label for="li_objekt">Vad ska licensieras?</label>
+          <input id="li_objekt" name="Licensobjekt" type="text">
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="li_territorium">Territorium</label>
+            <input id="li_territorium" name="Territorium" type="text" placeholder="T.ex. Sverige, EU, globalt">
+          </div>
+          <div class="field">
+            <label for="li_exklusiv">Exklusiv eller icke-exklusiv?</label>
+            <select id="li_exklusiv" name="Licenstyp">
+              <option value="">Välj</option>
+              <option>Exklusiv</option>
+              <option>Icke-exklusiv</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- GDPR / Personuppgiftsbiträdesavtal -->
+      <div class="service-fields" data-service="gdpr" hidden>
+        <div class="field">
+          <label for="g_behandling">Typ av personuppgiftsbehandling</label>
+          <input id="g_behandling" name="Personuppgiftsbehandling" type="text" placeholder="T.ex. lönehantering, CRM">
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="g_registrerade">Kategorier av registrerade</label>
+            <input id="g_registrerade" name="Registrerade" type="text" placeholder="T.ex. kunder, anställda">
+          </div>
+          <div class="field">
+            <label for="g_underbitrade">Anlitas underbiträden?</label>
+            <select id="g_underbitrade" name="Underbiträden">
+              <option value="">Välj</option>
+              <option>Ja</option>
+              <option>Nej</option>
+              <option>Osäker</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tvist & Process -->
+      <div class="service-fields" data-service="tvist" hidden>
+        <div class="form-row">
+          <div class="field">
+            <label for="tv_typ">Vilken typ av rättshandling behövs?</label>
+            <select id="tv_typ" name="Rättshandling">
+              <option value="">Välj (om känt)</option>
+              <option>Kravbrev</option>
+              <option>Ansökan om rättsskydd</option>
+              <option>Stämningsansökan</option>
+              <option>Rättegångsfullmakt</option>
+              <option>Osäker / vet ej</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tv_motpart">Motpart</label>
+            <input id="tv_motpart" name="Motpart (tvist)" type="text">
+          </div>
+        </div>
+        <div class="field">
+          <label for="tv_skede">I vilket skede befinner sig ärendet?</label>
+          <input id="tv_skede" name="Skede" type="text" placeholder="T.ex. inget krav skickat ännu / pågående process">
+        </div>
+      </div>
+
+      <!-- Utbildning -->
+      <div class="service-fields" data-service="utbildning" hidden>
+        <div class="form-row">
+          <div class="field">
+            <label for="u_amne">Önskat ämne</label>
+            <select id="u_amne" name="Utbildningsämne">
+              <option value="">Välj</option>
+              <option>ABK09</option>
+              <option>GDPR</option>
+              <option>Cybersäkerhet</option>
+              <option>Informationssäkerhet</option>
+              <option>Avtalsutbildning</option>
+              <option>Annat</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="u_antal">Antal deltagare</label>
+            <input id="u_antal" name="Antal deltagare" type="text">
+          </div>
+        </div>
+        <div class="field">
+          <label for="u_format">Önskat format</label>
+          <input id="u_format" name="Format" type="text" placeholder="T.ex. digitalt halvdag, på plats i Göteborg">
+        </div>
+      </div>
+
+      <!-- Övrig konsultation -->
+      <div class="service-fields" data-service="konsultation" hidden>
+        <div class="field">
+          <label for="k_behov">Beskriv ert behov kort</label>
+          <input id="k_behov" name="Konsultationsbehov" type="text" placeholder="T.ex. bolagsstyrning, riskgenomgång">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="arende">Beskriv ärendet</label>
+        <textarea id="arende" name="Ärende" placeholder="Kort sammanfattning, utöver fälten ovan." required></textarea>
       </div>
       <button class="btn" type="submit" style="align-self:flex-start;">Skicka</button>
     </form>
   </div>
 </section>
+
+<script>
+(function(){
+  var select = document.getElementById('tjanst');
+  var groups = document.querySelectorAll('.service-fields');
+  if(!select) return;
+  select.addEventListener('change', function(){
+    groups.forEach(function(g){
+      g.hidden = g.getAttribute('data-service') !== select.value;
+    });
+  });
+})();
+</script>
 
 <footer>
   <div class="wrap footer-inner">

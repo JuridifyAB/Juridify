@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Utbildningar — Juridify</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{
+  --navy:#0B2545;--navy-2:#122f5c;--gold:#C9A24B;--paper:#F7F8FA;--white:#FFFFFF;
+  --ink:#1A1A1A;--muted:#5B6472;--line:#E3E6EB;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Manrope',sans-serif;color:var(--ink);background:var(--white);line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+.wrap{max-width:900px;margin:0 auto;padding:0 32px;}
+h1,h2,h3{font-weight:800;letter-spacing:-0.02em;color:var(--navy);}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.header-inner{max-width:1180px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:76px;}
+.logo{font-weight:800;font-size:22px;color:var(--navy);}
+.btn{display:inline-flex;align-items:center;background:var(--navy);color:var(--white);font-weight:700;font-size:14.5px;padding:13px 24px;border-radius:2px;border:1px solid var(--navy);white-space:nowrap;}
+.btn:hover{background:var(--navy-2);}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--navy);}
+.btn-gold:hover{background:#b8913f;border-color:#b8913f;}
+.back-link{font-size:14px;color:var(--muted);font-weight:600;}
+.back-link:hover{color:var(--navy);}
+.hero{padding:64px 0 48px;}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.hero h1{font-size:40px;line-height:1.1;margin-bottom:18px;}
+.hero p.lead{font-size:17px;color:var(--muted);max-width:600px;}
+section{padding:40px 0;}
+.card-list{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0;}
+.card-list-item{background:var(--white);padding:26px 28px;}
+.card-list-item h3{font-size:17px;margin-bottom:8px;}
+.card-list-item p{font-size:14.5px;color:var(--muted);}
+.cta-box{background:var(--paper);border:1px solid var(--line);padding:36px;text-align:center;margin:48px 0 16px;}
+.cta-box h2{font-size:24px;margin-bottom:10px;}
+.cta-box p{color:var(--muted);margin-bottom:22px;}
+.format-row{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 8px;}
+.format-tag{font-size:13px;font-weight:700;color:var(--navy);border:1px solid var(--line);padding:7px 14px;border-radius:100px;background:var(--paper);}
+footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:36px 0;margin-top:40px;}
+.footer-inner{max-width:1180px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+@media(max-width:640px){.hero h1{font-size:30px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">Juridify.</a>
+    <a class="btn" href="index.html#kalender">Boka direkt i kalendern</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <a class="back-link" href="index.html#tjanster">← Tillbaka till tjänster</a>
+    <div class="eyebrow" style="margin-top:20px;">Tjänst — Utbildningar</div>
+    <h1>Utbildningar.</h1>
+    <p class="lead">Skräddarsydda utbildningar för företag och organisationer, anpassade efter er bransch och nivå.</p>
+    <div class="format-row">
+      <span class="format-tag">På plats eller digitalt</span>
+      <span class="format-tag">Anpassas efter målgrupp</span>
+      <span class="format-tag">Företag & organisationer</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 style="font-size:22px;margin-bottom:8px;">Utbildningsområden</h2>
+
+    <div class="card-list">
+      <div class="card-list-item">
+        <h3>ABK09</h3>
+        <p>Allmänna Bestämmelser för konsultuppdrag inom arkitekt- och ingenjörsverksamhet — vad standardavtalet innebär i praktiken och vanliga fallgropar.</p>
+      </div>
+      <div class="card-list-item">
+        <h3>GDPR</h3>
+        <p>Grunderna i dataskyddsförordningen, personuppgiftsansvar, biträdesavtal och hur ni hanterar personuppgifter korrekt i den dagliga verksamheten.</p>
+      </div>
+      <div class="card-list-item">
+        <h3>Cybersäkerhet</h3>
+        <p>Juridiska skyldigheter vid cyberincidenter, rapporteringskrav och hur avtal kan användas för att minska risk.</p>
+      </div>
+      <div class="card-list-item">
+        <h3>Informationssäkerhet</h3>
+        <p>Hur informationssäkerhet hänger ihop med avtal, ansvarsfördelning och regelefterlevnad i er organisation.</p>
+      </div>
+      <div class="card-list-item">
+        <h3>Avtalsutbildning</h3>
+        <p>Praktisk genomgång av vanliga avtal ni möter i verksamheten — vad som är viktigt att granska innan ni skriver under.</p>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h2>Vill ni boka en utbildning?</h2>
+      <p>Beskriv gruppens storlek, önskat ämne och format, så återkommer vi med förslag och pris.</p>
+      <a class="btn btn-gold" href="index.html#kontakt">Boka utbildning</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>© 2026 Juridify · Göteborg</div>
+    <div><a href="mailto:info@juridify.se">info@juridify.se</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
